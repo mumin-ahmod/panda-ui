@@ -1,4 +1,24 @@
+// Define the function to fetch data from the API
+function fetchData() {
+  fetch('http://localhost:8080', {
+    mode: 'no-cors'
+  })
+  // fetch('localhost:8081')
+      .then(response => response.json())
+      .then(data => {
+          console.log(data);
+        
+      })
+      .catch(error => {
+          console.error('There was an error!', error);
+      });
+}
+
+
+
 window.addEventListener('load', () => {
+  setInterval(fetchData, 1000);
+
   const scene = new Scene(
     {
       '.arm.right': {
